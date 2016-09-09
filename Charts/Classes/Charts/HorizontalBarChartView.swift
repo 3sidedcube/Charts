@@ -113,10 +113,10 @@ public class HorizontalBarChartView: BarChartView
         offsetLeft += self.extraLeftOffset
         
         _viewPortHandler.restrainViewPort(
-            offsetLeft: max(self.minOffset, offsetLeft),
-            offsetTop: max(self.minOffset, offsetTop),
-            offsetRight: max(self.minOffset, offsetRight),
-            offsetBottom: max(self.minOffset, offsetBottom))
+            offsetLeft: max(self.padding.left, offsetLeft),
+            offsetTop: max(self.padding.top, offsetTop),
+            offsetRight: max(self.padding.right, offsetRight),
+            offsetBottom: max(self.padding.bottom, offsetBottom))
         
         prepareOffsetMatrix()
         prepareValuePxMatrix()
