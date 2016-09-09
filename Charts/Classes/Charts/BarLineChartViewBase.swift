@@ -44,9 +44,9 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
     
     /// Sets drawing the borders rectangle to true. If this is enabled, there is no point drawing the axis-lines of x- and y-axis.
     public var drawBordersEnabled = false
-
-    /// Sets the minimum offset (padding) around the chart, defaults to 10
-    public var minOffset = CGFloat(10.0)
+    
+    /// Sets the padding around the chart, defaults to {10,10,10,10}
+    public var padding: UIEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
     
     /// Sets whether the chart should keep its position (zoom / scroll) after a rotation (orientation change)
     /// **default**: false
@@ -434,12 +434,12 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
             offsetRight += self.extraRightOffset
             offsetBottom += self.extraBottomOffset
             offsetLeft += self.extraLeftOffset
-
+            
             _viewPortHandler.restrainViewPort(
-                offsetLeft: max(self.minOffset, offsetLeft),
-                offsetTop: max(self.minOffset, offsetTop),
-                offsetRight: max(self.minOffset, offsetRight),
-                offsetBottom: max(self.minOffset, offsetBottom))
+                offsetLeft: max(self.padding.left, offsetLeft),
+                offsetTop: max(self.padding.top, offsetTop),
+                offsetRight: max(self.padding.right, offsetRight),
+                offsetBottom: max(self.padding.bottom, offsetBottom))
         }
         
         prepareOffsetMatrix()
