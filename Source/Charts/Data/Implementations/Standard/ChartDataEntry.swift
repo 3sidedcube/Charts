@@ -14,7 +14,7 @@ import Foundation
 open class ChartDataEntry: ChartDataEntryBase
 {
     /// the x value
-    open var x = Double(0.0)
+    @objc open var x = Double(0.0)
     
     public required init()
     {
@@ -54,7 +54,7 @@ open class ChartDataEntry: ChartDataEntryBase
             return false
         }
         
-        if fabs((object! as AnyObject).x - x) > DBL_EPSILON
+        if fabs((object! as AnyObject).x - x) > .ulpOfOne
         {
             return false
         }
@@ -100,12 +100,12 @@ public func ==(lhs: ChartDataEntry, rhs: ChartDataEntry) -> Bool
         return false
     }
     
-    if fabs(lhs.x - rhs.x) > DBL_EPSILON
+    if fabs(lhs.x - rhs.x) > .ulpOfOne
     {
         return false
     }
     
-    if fabs(lhs.y - rhs.y) > DBL_EPSILON
+    if fabs(lhs.y - rhs.y) > .ulpOfOne
     {
         return false
     }

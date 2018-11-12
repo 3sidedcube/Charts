@@ -200,7 +200,7 @@ open class ChartHighlighter : NSObject, IHighlighter
         return hypot(x1 - x2, y1 - y2)
     }
     
-    internal var data: ChartData?
+    @objc internal var data: ChartData?
     {
         return chart?.data
     }
